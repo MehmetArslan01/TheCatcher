@@ -747,8 +747,8 @@ Transform:
   m_GameObject: {fileID: 496346995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.2, y: 10.1, z: 114.2}
-  m_LocalScale: {x: 131.59409, y: 22.073061, z: 1}
+  m_LocalPosition: {x: 50, y: 10.1, z: 210.2}
+  m_LocalScale: {x: 300, y: 22.073061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 201706615}
@@ -1350,8 +1350,8 @@ Transform:
   m_GameObject: {fileID: 996878104}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.2, y: 10.1, z: 34.4}
-  m_LocalScale: {x: 131.59409, y: 22.073061, z: 1}
+  m_LocalPosition: {x: 50, y: 10.1, z: -70.4}
+  m_LocalScale: {x: 300, y: 22.073061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 201706615}
@@ -1813,8 +1813,8 @@ Transform:
   m_GameObject: {fileID: 1193500415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 100, y: 10.1, z: 77.4}
-  m_LocalScale: {x: 131.59409, y: 22.073061, z: 1}
+  m_LocalPosition: {x: 190, y: 10.1, z: 80}
+  m_LocalScale: {x: 300, y: 22.073061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 201706615}
@@ -8247,8 +8247,8 @@ Transform:
   m_GameObject: {fileID: 1906367006}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 14.3, y: 10.1, z: 77.4}
-  m_LocalScale: {x: 131.59409, y: 22.073061, z: 1}
+  m_LocalPosition: {x: -90, y: 10.1, z: 80}
+  m_LocalScale: {x: 300, y: 22.073061, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 201706615}
@@ -13324,10 +13324,11 @@ MonoBehaviour:
   footstepSound: {fileID: 8300000, guid: 0056868aff218604e8b0c859b2f72e32, type: 3}
   hitSound: {fileID: 8300000, guid: 77aa9d98608f26f428a5b5856a895d03, type: 3}
   speed: 5
+  rotationSpeed: 90
   gravity: -9.18
   jumpHeight: 2
   groundCheck: {fileID: 1143006926}
-  groundDistance: 0.2
+  groundDistance: 0.5
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
