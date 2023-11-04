@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider characterCollider;
 
     public Transform groundCheck;
-    public float groundDistance = 0.0f;
+    public float groundDistance = 0.5f;
     public LayerMask groundMask;
 
     Vector3 velocity;
@@ -45,16 +45,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.DrawRay(transform.position, Vector3.down * groundDistance, Color.red); // Dies zeichnet den Raycast
+
         isGrounded = IsGrounded();
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -5f;
             isJumping = false; // Spieler ist nicht mehr in der Luft
 
         }
 
-        Debug.Log("isGrounded " + isGrounded + " roundCheck.position " + groundCheck.position + " groundDistance " + groundDistance + " groundMask " + groundMask);
+        Debug.Log("isGrounded " + isGrounded + " groundCheck.position " + groundCheck.position + " groundDistance " + groundDistance + " groundMask " + groundMask.value);
 
         if (Input.GetKey("left shift") && isGrounded)
         {
