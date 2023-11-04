@@ -147,5 +147,12 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
             lastCollisionTime = Time.time;
         }
+
+        if (Time.time - lastCollisionTime >= 5f && other.gameObject.tag == "Leo")
+        {
+            Debug.Log("Collision with Leo");
+            SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
+            lastCollisionTime = Time.time;
+        }
     }
 }
