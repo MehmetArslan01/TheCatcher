@@ -8,27 +8,25 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public AudioSource footstepAudioSource;
     public AudioClip footstepSound;
-
     public AudioClip hitSound;
     private float lastCollisionTime = 0f;
-
     public float speed = 5;
-    public float rotationSpeed = 90f; // Adjust the rotation speed as needed
+    public float rotationSpeed = 90f;
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
-
-    private CapsuleCollider characterCollider;
+    public float attackDuration = 0.5f;
+    private bool isAttacking = false;
+    private float attackTimer = 0f;
 
     public Transform groundCheck;
     public float groundDistance = 0.5f;
     public LayerMask groundMask;
 
+    private CapsuleCollider characterCollider;
     Vector3 velocity;
     bool isGrounded;
-
     bool isMovingForward;
     bool isMovingBackward;
-
     bool isJumping;
 
     bool IsGrounded()
@@ -68,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        // Rotation based on "A" and "D" keys
         transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -101,7 +98,21 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("runBackward", isMovingBackward);
         animator.SetBool("isJumping", isJumping);
 
-        // Add footstep sound
+        // Angriff auslösen, wenn "Fire1" (z.B., linke Maustaste) gedrückt wird
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        {
+            StartAttack();
+        }
+
+        if (isAttacking)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= attackDuration)
+            {
+                EndAttack();
+            }
+        }
+
         if (isGrounded && (isMovingForward || isMovingBackward))
         {
             if (!footstepAudioSource.isPlaying)
@@ -110,6 +121,22 @@ public class PlayerMovement : MonoBehaviour
                 footstepAudioSource.Play();
             }
         }
+    }
+
+    void StartAttack()
+    {
+        isAttacking = true;
+        attackTimer = 0f;
+        Debug.Log("Attack started");
+        animator.SetBool("isAttacking", true);
+        // Hier können Sie die Logik für den Angriff implementieren
+    }
+
+    void EndAttack()
+    {
+        isAttacking = false;
+        Debug.Log("Attack ended");
+        animator.SetBool("isAttacking", false);
     }
 
     private void OnCollisionEnter(Collision other)
