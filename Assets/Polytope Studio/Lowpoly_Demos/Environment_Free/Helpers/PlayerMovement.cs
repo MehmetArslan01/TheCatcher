@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
 
+    private CapsuleCollider characterCollider;
+
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.0f;
     public LayerMask groundMask;
 
     Vector3 velocity;
@@ -29,19 +31,27 @@ public class PlayerMovement : MonoBehaviour
 
     bool isJumping;
 
+    bool IsGrounded()
+    {
+        //groundDistance = characterCollider.bounds.extents.y;
+        return Physics.Raycast(transform.position, Vector3.down, groundDistance); ;
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        characterCollider = GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = IsGrounded();
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
             isJumping = false; // Spieler ist nicht mehr in der Luft
+
         }
 
         Debug.Log("isGrounded " + isGrounded + " roundCheck.position " + groundCheck.position + " groundDistance " + groundDistance + " groundMask " + groundMask);
