@@ -6,14 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Animator animator;
-    public AudioSource footstepAudioSource; // Hier fügen wir einen AudioSource hinzu.
-    public AudioClip footstepSound; // Hier fügen wir den Schritt-Sound hinzu.
+    public AudioSource footstepAudioSource;
+    public AudioClip footstepSound;
 
     public AudioClip hitSound;
     private float lastCollisionTime = 0f;
 
-
     public float speed = 5;
+    public float rotationSpeed = 90f; // Adjust the rotation speed as needed
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
 
@@ -33,8 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool IsGrounded()
     {
-        //groundDistance = characterCollider.bounds.extents.y;
-        return Physics.Raycast(transform.position, Vector3.down, groundDistance); ;
+        return Physics.Raycast(transform.position, Vector3.down, groundDistance);
     }
 
     void Start()
@@ -45,18 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.down * groundDistance, Color.red); // Dies zeichnet den Raycast
-
         isGrounded = IsGrounded();
 
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -5f;
-            isJumping = false; // Spieler ist nicht mehr in der Luft
-
+            isJumping = false;
         }
-
-        Debug.Log("isGrounded " + isGrounded + " groundCheck.position " + groundCheck.position + " groundDistance " + groundDistance + " groundMask " + groundMask.value);
 
         if (Input.GetKey("left shift") && isGrounded)
         {
@@ -70,19 +64,21 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+
+        // Rotation based on "A" and "D" keys
+        transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            isJumping = true; // Spieler springt jetzt
-            Debug.Log("Springen ausgelöst" + isJumping);
+            isJumping = true;
+            Debug.Log("Jump triggered: " + isJumping);
         }
 
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
 
         if (z > 0)
@@ -103,9 +99,9 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool("runForward", isMovingForward);
         animator.SetBool("runBackward", isMovingBackward);
-        animator.SetBool("isJumping", isJumping); // Hier setzen wir den Animator-Parameter basierend auf isJumping
+        animator.SetBool("isJumping", isJumping);
 
-        // Hier fügen wir den Schritt-Sound hinzu
+        // Add footstep sound
         if (isGrounded && (isMovingForward || isMovingBackward))
         {
             if (!footstepAudioSource.isPlaying)
@@ -114,15 +110,13 @@ public class PlayerMovement : MonoBehaviour
                 footstepAudioSource.Play();
             }
         }
-
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        // Überprüfe, ob mindestens 1 Sekunde seit der letzten Kollision vergangen ist
         if (Time.time - lastCollisionTime >= 5f && other.gameObject.tag == "enemyTree")
         {
-            Debug.Log("Kollision mit enemyTree");
+            Debug.Log("Collision with enemyTree");
             SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
             lastCollisionTime = Time.time;
         }
