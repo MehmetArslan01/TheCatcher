@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomCharacterPlacement : MonoBehaviour
 {
-    public string characterTag = "Leo"; // Das Tag des Charakters, den Sie duplizieren möchten.
+    public string characterTag = "YourCharacterTag"; // Das Tag des Charakters, den Sie duplizieren möchten.
     public int numberOfCharacters = 10; // Anzahl der zu duplizierenden Charaktere.
     public float groundHeight = 0.5f; // Höhe über dem Boden, auf der die Charaktere platziert werden sollen.
 
@@ -27,6 +27,9 @@ public class RandomCharacterPlacement : MonoBehaviour
 
             // Erstellen Sie eine Kopie des ausgewählten Charakters.
             GameObject newCharacter = Instantiate(characters[randomCharacterIndex], randomPosition, Quaternion.identity);
+
+            // Aktivieren Sie die Animation für den erstellten Charakter.
+            
 
             // Zeigen Sie eine Debug-Nachricht an, um zu bestätigen, dass der Charakter erstellt wurde.
             Debug.Log("Character created at position: " + randomPosition);
