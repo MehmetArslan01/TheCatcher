@@ -123,6 +123,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &69830411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69830412}
+  - component: {fileID: 69830413}
+  m_Layer: 5
+  m_Name: PageGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &69830412
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69830411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1868807107}
+  - {fileID: 1208962816}
+  - {fileID: 130294625}
+  m_Father: {fileID: 1820973674}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &69830413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69830411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4b48b279d2b48d78bc82e478b0923e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPageIndex: 0
 --- !u!1 &104617916
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +345,155 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &130294624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 130294625}
+  - component: {fileID: 130294628}
+  - component: {fileID: 130294627}
+  - component: {fileID: 130294626}
+  m_Layer: 5
+  m_Name: Page3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &130294625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130294624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 69830412}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 15}
+  m_SizeDelta: {x: 620, y: 201.08432}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &130294626
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130294624}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &130294627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130294624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Das Ziel ist es, so viele Leos wie auch nur m\xF6glich zu fangen, bevor
+    die Zeit ausgeht. Aber Achtung, du kannst gesammelte Leos verlieren wenn du von
+    deinem Gegner getroffen wirst!"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 16
+  m_fontSizeBase: 16
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &130294628
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130294624}
+  m_CullTransparentMesh: 1
 --- !u!1 &168586983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,17 +2283,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208962815}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1820973674}
+  m_Father: {fileID: 69830412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: -39.999992, y: -70}
+  m_SizeDelta: {x: 620, y: 201.08432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208962817
 MonoBehaviour:
@@ -2116,15 +2317,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Da nur die jeweils untersten Ebenen miteinander k\xE4mpfen k\xF6nnen ist
     der Krieger mit vielen \u201ELeo\u201Cs also sicherer, w\xE4hrend derjenige mit
-    weniger \"Leo\"s einem gr\xF6\xDFeren Risiko ausgesetzt ist. Die Spieler tauchen
-    tief in diese faszinierende Welt ein, um die strategische Kunst des \"Leo\"-Sammelns
+    weniger \"Leo\"s einem gr\xF6\xDFeren Risiko ausgesetzt ist. Du tauchst tief
+    in diese faszinierende Welt ein, um die strategische Kunst des \"Leo\"-Sammelns
     zu beherrschen und gleichzeitig actionreiche K\xE4mpfe zu bestreiten.\r\n\nW\xE4hrend
-    sie ums \xDCberleben ringen, suchen die Spieler nach Antworten auf die Geheimnisse,
-    die diese Welt umgeben. Ihre Hoffnung liegt darin, einen Weg zu finden, um dem
-    endlosen Konflikt ein Ende zu setzen, damit sie nicht l\xE4nger dazu verdammt
-    sind, in dieser Welt einen ewigen Kampf auszufechten. Tauche ein in dieses aufregende
+    sie ums \xDCberleben ringen, suchst du nach Antworten auf die Geheimnisse, die
+    diese Welt umgeben. Ihre Hoffnung liegt darin, einen Weg zu finden, um dem endlosen
+    Konflikt ein Ende zu setzen, damit sie nicht l\xE4nger dazu verdammt sind, in
+    dieser Welt einen ewigen Kampf auszufechten. Tauche ein in dieses aufregende
     Abenteuer und finde heraus, ob du die Macht besitzt, das Schicksal dieser Krieger
-    zu \xE4ndern und das Geheimnis dieser Welt zu l\xFCften.\r\n"
+    zu \xE4ndern und das Geheimnis dieser Welt zu l\xFCften.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2730,7 +2931,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1472078224}
   - component: {fileID: 1472078225}
-  - component: {fileID: 1472078226}
   m_Layer: 5
   m_Name: ManualGroup
   m_TagString: Untagged
@@ -2770,20 +2970,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &1472078226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472078223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa4b48b279d2b48d78bc82e478b0923e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  page1: {fileID: 1868807110}
-  page2: {fileID: 1208962819}
 --- !u!1 &1509330008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,9 +3777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472078226}
+      - m_Target: {fileID: 69830413}
         m_TargetAssemblyTypeName: PageController, Assembly-CSharp
-        m_MethodName: getPreviousPage
+        m_MethodName: GetPreviousPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3762,6 +3948,7 @@ MonoBehaviour:
   startGroup: {fileID: 2087409245}
   manualGroup: {fileID: 1472078225}
   settingsGroup: {fileID: 1339404692}
+  pageController: {fileID: 69830413}
 --- !u!1 &1801849619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,9 +4020,8 @@ RectTransform:
   m_Children:
   - {fileID: 1882947992}
   - {fileID: 1756447831}
-  - {fileID: 1868807107}
-  - {fileID: 1208962816}
   - {fileID: 1869867991}
+  - {fileID: 69830412}
   m_Father: {fileID: 1472078224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3907,17 +4093,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868807106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1820973674}
+  m_Father: {fileID: 69830412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: -39.999992, y: -70}
+  m_SizeDelta: {x: 620, y: 201.08432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868807108
 MonoBehaviour:
@@ -3939,19 +4125,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Das Spiel entf\xFChrt die Spieler in eine atemberaubende Welt, in der
-    majest\xE4tische Baumriesen den Himmel ber\xFChren und sch\xFCchterne, aber faszinierende
-    \"Leo\"-Charaktere ihr Zuhause haben. Doch die Geschichte, die diese Welt durchzieht,
-    ist alles andere als friedlich:\r\n\nZwei m\xE4chtige Krieger sind in dieser
-    Welt in einem epischen Kampf gefangen. Sie sind auf einer Welt gestrandet, die
-    von den faszinierenden \"Leo\"-Charakteren bewohnt werden. Diese \"Leo\"s sind
-    nicht nur niedliche, anthropomorphe Wesen, sondern auch Lebensspender f\xFCr
-    die Krieger.\r\n\nDie Bestimmung der beiden Krieger ist d\xFCster und unausweichlich.
-    Sie sind dazu verdammt, in dieser Welt zu k\xE4mpfen und verzweifelt nach \"Leo\"s
-    zu suchen, um ihre \xDCberlebenschancen zu st\xE4rken. Jeder gefundene \"Leo\"
-    gew\xE4hrt ihnen ein zus\xE4tzliches Leben, eine kostbare Ressource, die es ihnen
-    erm\xF6glicht, auf den Schultern dieser Wesen zu stehen und die Welt auf v\xF6llig
-    neuen Ebenen zu erkunden. "
+  m_text: "Das Spiel entf\xFChrt dich in eine atemberaubende Welt, in der majest\xE4tische
+    Baumriesen den Himmel ber\xFChren und sch\xFCchterne, aber faszinierende \"Leo\"-Charaktere
+    ihr Zuhause haben. Doch die Geschichte, die diese Welt durchzieht, ist alles
+    andere als friedlich:\r\n\nZwei m\xE4chtige Krieger sind in dieser Welt in einem
+    epischen Kampf gefangen. Sie sind auf einer Welt gestrandet, die von den faszinierenden
+    \"Leo\"-Charakteren bewohnt werden. Diese \"Leo\"s sind nicht nur niedliche,
+    anthropomorphe Wesen, sondern auch Lebensspender f\xFCr die Krieger.\r\n\nDie
+    Bestimmung der beiden Krieger ist d\xFCster und unausweichlich. Sie sind dazu
+    verdammt, in dieser Welt zu k\xE4mpfen und verzweifelt nach \"Leo\"s zu suchen,
+    um ihre \xDCberlebenschancen zu st\xE4rken. Jeder gefundene \"Leo\" gew\xE4hrt
+    ihnen ein zus\xE4tzliches Leben, eine kostbare Ressource, die es ihnen erm\xF6glicht,
+    auf den Schultern dieser Wesen zu stehen und die Welt auf v\xF6llig neuen Ebenen
+    zu erkunden. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4254,9 +4440,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1472078226}
+      - m_Target: {fileID: 69830413}
         m_TargetAssemblyTypeName: PageController, Assembly-CSharp
-        m_MethodName: getNextPage
+        m_MethodName: GetNextPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

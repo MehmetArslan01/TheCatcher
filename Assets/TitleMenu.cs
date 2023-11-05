@@ -9,6 +9,8 @@ public class TitleMenu : MonoBehaviour
     public CanvasGroup manualGroup;
     public CanvasGroup settingsGroup;
 
+    public PageController pageController;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -31,6 +33,7 @@ public class TitleMenu : MonoBehaviour
 
     public void ShowStart(CanvasGroup currentGroup)
     {
+        pageController.ResetCurrentPageIndex();
         this.ShowNewGroup(this.startGroup, currentGroup);
     }
 
