@@ -65,19 +65,17 @@ public class NPCController : MonoBehaviour
         Vector3 toPlayer = player.position - transform.position;
         if (toPlayer.magnitude < fleeDistance)
         {
-            if (!isFleeing)
-            {
-                // Fliehe vom Spieler
-                heading = Vector3.SignedAngle(Vector3.forward, -toPlayer.normalized, Vector3.up);
-                targetRotation = new Vector3(0, heading, 0);
-                isFleeing = true;
-            }
+            // Fliehe vom Spieler
+            Vector3 awayFromPlayer = transform.position - player.position;
+            targetRotation = Quaternion.LookRotation(awayFromPlayer).eulerAngles;
+            isFleeing = true;
         }
         else
         {
             isFleeing = false;
         }
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
