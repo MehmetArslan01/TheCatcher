@@ -16,18 +16,12 @@ public class TitleMenu : MonoBehaviour
 
     public void ShowManual()
     {
-        this.DisableGroup(startGroup);
-
-        this.manualGroup.alpha = 1.0f;
-        this.manualGroup.interactable = true;
+        this.ShowNewGroup(this.manualGroup, this.startGroup);
     }
 
     public void ShowSettings()
     {
-        this.DisableGroup(startGroup);
-
-        this.settingsGroup.alpha = 1.0f;
-        this.settingsGroup.interactable = true;
+        this.ShowNewGroup(this.settingsGroup, this.startGroup);
     }
 
     public void QuitGame()
@@ -37,15 +31,23 @@ public class TitleMenu : MonoBehaviour
 
     public void ShowStart(CanvasGroup currentGroup)
     {
+        this.ShowNewGroup(this.startGroup, currentGroup);
+    }
+
+    private void ShowNewGroup(CanvasGroup newGroup, CanvasGroup currentGroup)
+    {
         this.DisableGroup(currentGroup);
-        this.startGroup.alpha = 1.0f;
-        this.startGroup.interactable = true;
+
+        newGroup.alpha = 1.0f;
+        newGroup.interactable = true;
+        newGroup.blocksRaycasts = true;
     }
 
     private void DisableGroup(CanvasGroup canvasGroup)
     {
         canvasGroup.alpha = 0.0f;
         canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 
 }
