@@ -5,19 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class TitleMenu : MonoBehaviour
 {
+    public CanvasGroup startGroup;
+    public CanvasGroup manualGroup;
+    public CanvasGroup settingsGroup;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Debug.Log("Start Screen clicked mf");
     }
 
     public void ShowManual()
     {
-        SceneManager.LoadScene(2);
+        this.startGroup.alpha = 0.0f;
+        this.manualGroup.alpha = 1.0f;
     }
 
     public void ShowSettings()
     {
-        SceneManager.LoadScene(3);
+
     }
 
     public void QuitGame()
