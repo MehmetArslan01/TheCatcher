@@ -12,23 +12,40 @@ public class TitleMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("Start Screen clicked mf");
     }
 
     public void ShowManual()
     {
-        this.startGroup.alpha = 0.0f;
+        this.DisableGroup(startGroup);
+
         this.manualGroup.alpha = 1.0f;
+        this.manualGroup.interactable = true;
     }
 
     public void ShowSettings()
     {
+        this.DisableGroup(startGroup);
 
+        this.settingsGroup.alpha = 1.0f;
+        this.settingsGroup.interactable = true;
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ShowStart(CanvasGroup currentGroup)
+    {
+        this.DisableGroup(currentGroup);
+        this.startGroup.alpha = 1.0f;
+        this.startGroup.interactable = true;
+    }
+
+    private void DisableGroup(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = 0.0f;
+        canvasGroup.interactable = false;
     }
 
 }
