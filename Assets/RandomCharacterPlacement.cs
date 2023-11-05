@@ -15,11 +15,11 @@ public class RandomCharacterPlacement : MonoBehaviour
 
         for (int i = 0; i < numberOfCharacters; i++)
         {
-            // Wählen Sie eine zufällige Position für die Platzierung aus.
+            // Wählen Sie eine zufällige Position für die Platzierung innerhalb der angegebenen Grenzen.
             Vector3 randomPosition = new Vector3(
-                Random.Range(-50f, 50f), // Passen Sie die gewünschten Bereiche an.
+                Random.Range(-100f, 100f), // X-Koordinate im Bereich von -100 bis 100.
                 groundHeight, // Höhe über dem Boden.
-                Random.Range(-50f, 50f)
+                Random.Range(-73.1f, 126.9f) // Z-Koordinate im Bereich von -73.1 bis 126.9.
             );
 
             // Wählen Sie zufällig einen Charakter aus dem Array aus.
@@ -30,7 +30,6 @@ public class RandomCharacterPlacement : MonoBehaviour
 
             // Aktivieren Sie die Animation für den erstellten Charakter.
             
-
             // Zeigen Sie eine Debug-Nachricht an, um zu bestätigen, dass der Charakter erstellt wurde.
             Debug.Log("Character created at position: " + randomPosition);
         }
