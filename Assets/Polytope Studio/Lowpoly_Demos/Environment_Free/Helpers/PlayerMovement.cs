@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FishNet.Connection;
 using FishNet.Object;
@@ -19,15 +18,7 @@ public class PlayerMovement : NetworkBehaviour
     public float attackDuration = 0.5f;
     private bool isAttacking = false;
     private float attackTimer = 0f;
-public Camera playerCamera;
-
-    private float cameraXOffset = 1.7f;
-
-    private float cameraYOffset = 3.0f;
-    private float cameraZOffset = -3.795f;
-
-
-
+    public Camera playerCamera;
     public Transform groundCheck;
     public float groundDistance = 0.5f;
     public LayerMask groundMask;
@@ -39,12 +30,17 @@ public Camera playerCamera;
     bool isMovingBackward;
     bool isJumping;
 
+    private string horizontalInput;
+    private string verticalInput;
+    private string jumpInput;
+    private string attackInput;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
         if (base.IsOwner)
         {
-        //    gameObject.SetActive(true);
+            //    gameObject.SetActive(true);
         }
         else
         {
@@ -167,7 +163,7 @@ public Camera playerCamera;
         if (Time.time - lastCollisionTime >= 5f && other.gameObject.tag == "enemyTree")
         {
             Debug.Log("Collision with enemyTree");
-            SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
+            // SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
             lastCollisionTime = Time.time;
         }
     }

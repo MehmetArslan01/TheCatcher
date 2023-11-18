@@ -24,10 +24,10 @@ public class NPCController : MonoBehaviour
         heading = Random.Range(0, 360);
         transform.eulerAngles = new Vector3(0, heading, 0);
 
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        // if (player == null)
+        // {
+        //     player = GameObject.FindGameObjectWithTag("Player").transform;
+        // }
 
         StartCoroutine(NewHeading());
     }
