@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    public AudioSource audioSource;
 
     [SerializeField]
     private AudioSource soundEffectObject;
@@ -23,10 +24,10 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip, Transform spawn, float volume)
     {
         // TODO: Create SoundEffectObject instance and play soundeffect
-        AudioSource audioSource = Instantiate(soundEffectObject, spawn.position, Quaternion.identity);
-        audioSource.clip = clip;
-        audioSource.volume = volume;
-        audioSource.Play();
-        Destroy(audioSource.gameObject, audioSource.clip.length);
+        this.audioSource = Instantiate(soundEffectObject, spawn.position, Quaternion.identity);
+        this.audioSource.clip = clip;
+        this.audioSource.volume = volume;
+        this.audioSource.Play();
+        Destroy(this.audioSource.gameObject, this.audioSource.clip.length);
     }
 }

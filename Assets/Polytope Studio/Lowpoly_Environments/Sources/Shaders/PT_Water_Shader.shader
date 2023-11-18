@@ -797,7 +797,7 @@ Shader "Polytope Studio/PT_Water_Shader"
 				surfaceData.smoothness          = saturate(Smoothness),
 				surfaceData.occlusion           = Occlusion,
 				surfaceData.emission            = Emission,
-				surfaceData.alpha               = saturate(Alpha);
+				surfaceData.alpha               = 1;
 				surfaceData.normalTS            = Normal;
 				surfaceData.clearCoatMask       = 0;
 				surfaceData.clearCoatSmoothness = 1;
