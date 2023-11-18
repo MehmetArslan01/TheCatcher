@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FishNet.Connection;
+using FishNet.Object;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public Animator animator;
@@ -17,6 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public float attackDuration = 0.5f;
     private bool isAttacking = false;
     private float attackTimer = 0f;
+public Camera playerCamera;
+
+    private float cameraXOffset = 1.7f;
+
+    private float cameraYOffset = 3.0f;
+    private float cameraZOffset = -3.795f;
+
+
 
     public Transform groundCheck;
     public float groundDistance = 0.5f;
@@ -28,6 +38,19 @@ public class PlayerMovement : MonoBehaviour
     bool isMovingForward;
     bool isMovingBackward;
     bool isJumping;
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (base.IsOwner)
+        {
+        //    gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.GetComponent<PlayerMovement>().enabled = false;
+        }
+    }
 
     bool IsGrounded()
     {
