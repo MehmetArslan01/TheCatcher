@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97c62e14a9f5424099186dc62e5e779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 2
+  _componentIndexCache: 3
   _addedNetworkObject: {fileID: 3092304128942411812}
   _networkObjectCache: {fileID: 3092304128942411812}
 --- !u!1 &5982621087594045737
@@ -669,6 +669,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4346499914123958079}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328c1911d36dff748923d8b67ca4cc35,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7958235303151717207}
   m_SourcePrefab: {fileID: 100100000, guid: 328c1911d36dff748923d8b67ca4cc35, type: 3}
 --- !u!1 &215413371813553691 stripped
 GameObject:
@@ -795,6 +799,7 @@ MonoBehaviour:
   _networkBehaviours:
   - {fileID: 5753237565740018894}
   - {fileID: 813385104344742035}
+  - {fileID: 4346499914123958079}
   - {fileID: 2533162975863610998}
   <ParentNetworkObject>k__BackingField: {fileID: 0}
   <ChildNetworkObjects>k__BackingField: []
@@ -869,15 +874,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 3092304128942411812}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 3092304128942411812}
   IgnoredParameters: []
   _animator: {fileID: 3685790165675727788}
   _smoothFloats: 1
   _interpolation: 2
   _clientAuthoritative: 1
   _sendToOwner: 0
+--- !u!114 &7958235303151717207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215413371813553691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f48f002b825cbd45a19bd96d90f9edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unreliableMTU: 1023
+  _ipv4BindAddress: 192.168.242.8
+  _ipv6BindAddress: 
+  _port: 7770
+  _maximumClients: 4095
+  _clientAddress: localhost
+  _timeout: 15
 --- !u!4 &699920508906421409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 328c1911d36dff748923d8b67ca4cc35,
