@@ -118,7 +118,7 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isJumping", isJumping);
 
         // Angriff auslösen, wenn "Fire1" (z.B., linke Maustaste) gedrückt wird
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire2") && !isAttacking)
         {
             StartAttack();
         }
