@@ -1720,6 +1720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
       propertyPath: m_TagString
       value: SecondPlayer
       objectReference: {fileID: 0}
@@ -5484,7 +5489,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7443408887813606051, guid: 0b650fca685f2eb41a86538aa883e4c1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1499078472}
   m_SourcePrefab: {fileID: 100100000, guid: 0b650fca685f2eb41a86538aa883e4c1, type: 3}
 --- !u!1 &1873313746
 GameObject:
@@ -6043,7 +6052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da7abdb1ebb341fd9e8fd012bd6d780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSound: {fileID: 2052069258}
   mixer: {fileID: 24100000, guid: ce426b9f3cb21374fbf6d0a9a41e6833, type: 2}
 --- !u!1 &2054945355
 GameObject:
@@ -17489,11 +17497,21 @@ PrefabInstance:
       propertyPath: <SceneId>k__BackingField
       value: 985567190813700023
       objectReference: {fileID: 0}
+    - target: {fileID: 3944222284185509091, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5753237565740018894, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1143006926}
+    - target: {fileID: 6133228148632120645, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7958235303151717207, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _clientAddress
@@ -17548,3 +17566,5 @@ SceneRoots:
   - {fileID: 195129687}
   - {fileID: 1867770976}
   - {fileID: 1821356692}
+  - {fileID: 1526914374}
+  - {fileID: 2052069257}

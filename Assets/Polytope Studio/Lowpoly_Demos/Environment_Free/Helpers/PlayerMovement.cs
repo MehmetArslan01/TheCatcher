@@ -87,7 +87,7 @@ public class PlayerMovement : NetworkBehaviour
 
         transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump2") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             isJumping = true;
