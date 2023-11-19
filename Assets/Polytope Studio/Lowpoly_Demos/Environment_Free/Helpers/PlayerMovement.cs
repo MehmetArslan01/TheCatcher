@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using FishNet.Connection;
 using FishNet.Object;
@@ -30,52 +31,28 @@ public class PlayerMovement : NetworkBehaviour
     bool isMovingBackward;
     bool isJumping;
 
-    private string horizontalInput;
-    private string verticalInput;
-    private string jumpInput;
-    private string attackInput;
+    private float lastLeoCollisionTime = 0f;
+    private float leoCollisionDelay = 3f;
+    public int numberOfLeos;
 
-    public override void OnStartClient()
-    {
-        base.OnStartClient();
-        if (base.IsOwner)
-        {
-            //    gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.GetComponent<PlayerMovement>().enabled = false;
-        }
-    }
 
-    bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, Vector3.down, groundDistance);
-    }
+    public float leoHeight;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         characterCollider = GetComponent<CapsuleCollider>();
+        numberOfLeos = 0;
+        Debug.Log("transform.position " + transform.position);
     }
 
     void Update()
     {
-        isGrounded = IsGrounded();
-
+        // Überprüfen, ob der Charakter am Boden ist
+        isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -5f;
-            isJumping = false;
-        }
-
-        if (Input.GetKey("left shift") && isGrounded)
-        {
-            speed = 10;
-        }
-        else
-        {
-            speed = 5;
+            velocity.y = 0f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -87,38 +64,26 @@ public class PlayerMovement : NetworkBehaviour
 
         transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
 
+        // Sprunglogik
         if (Input.GetButtonDown("Jump2") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            isJumping = true;
-            Debug.Log("Jump triggered: " + isJumping);
         }
 
+        // Anwenden der Schwerkraft
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        if (z > 0)
-        {
-            isMovingForward = true;
-            isMovingBackward = false;
-        }
-        else if (z < 0)
-        {
-            isMovingBackward = true;
-            isMovingForward = false;
-        }
-        else
-        {
-            isMovingForward = false;
-            isMovingBackward = false;
-        }
+        // Animationstrigger für Vorwärts- und Rückwärtsbewegung
+        isMovingForward = z > 0;
+        isMovingBackward = z < 0;
 
         animator.SetBool("runForward", isMovingForward);
         animator.SetBool("runBackward", isMovingBackward);
-        animator.SetBool("isJumping", isJumping);
+        animator.SetBool("isJumping", !isGrounded);
 
-        // Angriff auslösen, wenn "Fire1" (z.B., linke Maustaste) gedrückt wird
-        if (Input.GetButtonDown("Fire2") && !isAttacking)
+        // Angriffslogik
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
         {
             StartAttack();
         }
@@ -132,13 +97,11 @@ public class PlayerMovement : NetworkBehaviour
             }
         }
 
-        if (isGrounded && (isMovingForward || isMovingBackward))
+        // Fußschritt-Audios
+        if (isGrounded && (isMovingForward || isMovingBackward) && !footstepAudioSource.isPlaying)
         {
-            if (!footstepAudioSource.isPlaying)
-            {
-                footstepAudioSource.clip = footstepSound;
-                footstepAudioSource.Play();
-            }
+            footstepAudioSource.clip = footstepSound;
+            footstepAudioSource.Play();
         }
     }
 
@@ -160,11 +123,29 @@ public class PlayerMovement : NetworkBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (Time.time - lastCollisionTime >= 5f && other.gameObject.tag == "enemyTree")
+        if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
         {
-            Debug.Log("Collision with enemyTree");
-            // SoundManager.Instance.PlaySound(this.hitSound, other.transform, 1f);
-            lastCollisionTime = Time.time;
+            Debug.Log("Collision with Leo");
+
+            Transform leoTransform = other.transform;
+            Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
+            Vector3 characterTopPosition = transform.position + stackPositionOffset;
+            leoTransform.position = characterTopPosition;
+            leoTransform.rotation = transform.rotation * Quaternion.Euler(20f, 0f, 0f);
+
+            leoTransform.SetParent(transform);
+
+            // Deaktivieren Sie den Rigidbody, um physikalische Interaktionen zu vermeiden
+            Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
+            if (leoRigidbody != null)
+            {
+                Destroy(leoRigidbody); // Entfernen Sie den Rigidbody vollständig
+            }
+
+            numberOfLeos++;
+            lastLeoCollisionTime = Time.time;
+            other.gameObject.tag = "Untagged";
         }
     }
+
 }
