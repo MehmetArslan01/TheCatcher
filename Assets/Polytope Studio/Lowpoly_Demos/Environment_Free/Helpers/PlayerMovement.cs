@@ -29,7 +29,6 @@ public class PlayerMovement : NetworkBehaviour
     bool isGrounded;
     bool isMovingForward;
     bool isMovingBackward;
-    bool isJumping;
 
     private float lastLeoCollisionTime = 0f;
     private float leoCollisionDelay = 3f;
