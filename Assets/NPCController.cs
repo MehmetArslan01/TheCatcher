@@ -32,12 +32,13 @@ public class NPCController : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
+        animator.SetBool("isRunning", true);
+
         StartCoroutine(NewHeading());
     }
 
     void Update()
     {
-        //CheckForPlayer();
         if (!isCaught)
         {
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
@@ -64,30 +65,12 @@ public class NPCController : MonoBehaviour
         var ceil = Mathf.Clamp(transform.eulerAngles.y + maxHeadingChange, 0, 360);
         heading = Random.Range(floor, ceil);
         targetRotation = new Vector3(0, heading, 0);
-        animator.SetBool("isRunning", true);
-    }
-
-    void CheckForPlayer()
-    {
-        Vector3 toPlayer = player.position - transform.position;
-        if (toPlayer.magnitude < fleeDistance)
-        {
-            // Fliehe vom Spieler
-            Vector3 awayFromPlayer = transform.position - player.position;
-            targetRotation = Quaternion.LookRotation(awayFromPlayer).eulerAngles;
-            isFleeing = true;
-        }
-        else
-        {
-            isFleeing = false;
-        }
     }
 
     public void GetCaught()
     {
         isCaught = true;
-        animator.SetBool("isRunning", false); // Stopp der Bewegungsanimation
-        // Fügen Sie hier weitere Aktionen hinzu, die durchgeführt werden sollen, wenn der NPC gefangen wird
+        animator.SetBool("isRunning", false); 
     }
 
 
