@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class AnimationController : MonoBehaviour
+{
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        float forwardMovement = Input.GetAxis("Vertical"); // Annahme: Vorwärtsbewegung wird über die "Vertical"-Achse gesteuert.
+
+        // Setzen Sie die Animator-Triggerbedingung basierend auf der Vorwärtsbewegung.
+        if (forwardMovement > 0.0f)
+        {
+            animator.SetBool("IsMovingForward", true);
+        }
+        else
+        {
+            animator.SetBool("IsMovingForward", false);
+        }
+    }
+}

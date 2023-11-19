@@ -12,7 +12,7 @@ public class PlayerMovement : NetworkBehaviour
     public AudioClip footstepSound;
     public AudioClip hitSound;
     private float lastCollisionTime = 0f;
-    public float speed = 5;
+    public float speed = 4;
     public float rotationSpeed = 90f;
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
@@ -144,7 +144,6 @@ public class PlayerMovement : NetworkBehaviour
 
             leoTransform.SetParent(transform);
 
-            // Deaktivieren Sie den Rigidbody, um physikalische Interaktionen zu vermeiden
             Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
             if (leoRigidbody != null)
             {
@@ -154,6 +153,9 @@ public class PlayerMovement : NetworkBehaviour
             numberOfLeos++;
             lastLeoCollisionTime = Time.time;
             other.gameObject.tag = "Untagged";
+
+            // Slow the player with each NPCs
+            speed = (float)(speed - (0.2 * numberOfLeos)); 
         }
     }
 
