@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 56cb1d00b2e0b43e2828c30318270af5
   - enabled: 1
-    path: Assets/thecatcher.unity
+    path: Assets/Scenes/TheCatcher.unity
     guid: 9e32b2fd1290ccf45822309b8abb72fe
   m_configObjects: {}
