@@ -1807,7 +1807,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _networkBehaviours.Array.data[0]
       value: 
-      objectReference: {fileID: 1763076929}
+      objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.data[1]
@@ -1880,6 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2533162975863610998, guid: 87522188d18fcc74695dc9c4c8c0738d, type: 3}
+    - {fileID: 5753237565740018894, guid: 87522188d18fcc74695dc9c4c8c0738d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5255,18 +5256,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2836e36774ca1c4bbbee976e17b649c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1763076929 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5753237565740018894, guid: 87522188d18fcc74695dc9c4c8c0738d,
-    type: 3}
-  m_PrefabInstance: {fileID: 707363447}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763076914}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5721f45a4372242a249d3bb70958a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1771837137
