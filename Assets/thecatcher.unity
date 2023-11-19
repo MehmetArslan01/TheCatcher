@@ -2071,39 +2071,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &762023510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762023506}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5721f45a4372242a249d3bb70958a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 762023517}
-  _networkObjectCache: {fileID: 762023517}
-  controller: {fileID: 762023511}
-  animator: {fileID: 0}
-  footstepAudioSource: {fileID: 1728170713}
-  footstepSound: {fileID: 8300000, guid: 0056868aff218604e8b0c859b2f72e32, type: 3}
-  hitSound: {fileID: 8300000, guid: 77aa9d98608f26f428a5b5856a895d03, type: 3}
-  speed: 5
-  rotationSpeed: 90
-  gravity: -9.18
-  jumpHeight: 2
-  attackDuration: 0.5
-  playerCamera: {fileID: 0}
-  groundCheck: {fileID: 1143006926}
-  groundDistance: 0.5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  numberOfLeos: 0
-  leoHeight: 0
 --- !u!143 &762023511
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2170,7 +2137,7 @@ MonoBehaviour:
   <ComponentIndex>k__BackingField: 0
   <PredictedSpawn>k__BackingField: {fileID: 0}
   _networkBehaviours:
-  - {fileID: 762023510}
+  - {fileID: 0}
   <ParentNetworkObject>k__BackingField: {fileID: 0}
   <ChildNetworkObjects>k__BackingField: []
   SerializedTransformProperties:
@@ -3574,10 +3541,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 762023516}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328c1911d36dff748923d8b67ca4cc35,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 762023510}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 328c1911d36dff748923d8b67ca4cc35,
         type: 3}
       insertIndex: -1
@@ -17807,3 +17770,4 @@ SceneRoots:
   - {fileID: 1867770976}
   - {fileID: 1821356692}
   - {fileID: 1900656604}
+  - {fileID: 1526914374}
