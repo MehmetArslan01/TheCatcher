@@ -2083,12 +2083,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762023506}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dc4731856d8a49fbb9ee58da26ba452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  animator: {fileID: 0}
+  speed: 2
   directionChangeInterval: 1
   maxHeadingChange: 30
   fleeDistance: 10
@@ -5213,7 +5214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135f1119b83508548b731a9c54d138f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 3
+  _componentIndexCache: 2
   _addedNetworkObject: {fileID: 1763076917}
   _networkObjectCache: {fileID: 1763076917}
   controller: {fileID: 1763076921}

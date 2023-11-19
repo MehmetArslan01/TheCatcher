@@ -125,7 +125,16 @@ numberOfLeos = 0;
     {
         if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
         {
-            Debug.Log("Collision with Leo");
+            if (!isAttacking)
+            {
+                StartAttack();
+            }
+
+            NPCController leoController = other.gameObject.GetComponent<NPCController>();
+            if (leoController != null)
+            {
+                leoController.GetCaught();
+            }
 
             Transform leoTransform = other.transform;
             Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
