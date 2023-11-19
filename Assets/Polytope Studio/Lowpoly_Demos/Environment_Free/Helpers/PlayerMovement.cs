@@ -29,6 +29,7 @@ public class PlayerMovement : NetworkBehaviour
     bool isGrounded;
     bool isMovingForward;
     bool isMovingBackward;
+    bool isJumping;
 
     private float lastLeoCollisionTime = 0f;
     private float leoCollisionDelay = 3f;
@@ -82,7 +83,7 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isJumping", !isGrounded);
 
         // Angriffslogik
-        if (Input.GetButtonDown("Fire2") && !isAttacking)
+        if (Input.GetButtonDown("Fire1") && !isAttacking)
         {
             StartAttack();
         }
