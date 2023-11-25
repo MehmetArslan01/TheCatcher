@@ -11,6 +11,7 @@ TagManager:
   - SecondPlayer
   - Player1
   - Player2
+  - Water
   layers:
   - Default
   - TransparentFX

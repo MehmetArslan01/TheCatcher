@@ -157,4 +157,17 @@ public class PlayerMovement : NetworkBehaviour
             speed = (float)(speed - (0.2 * numberOfLeos));
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            animator.SetBool("isSwimming", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        animator.SetBool("isSwimming", false);
+    }
 }
