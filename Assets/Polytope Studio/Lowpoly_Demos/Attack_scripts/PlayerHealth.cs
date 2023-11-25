@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Debug.Log(currentHealth + " player1");
 
         // Überprüfe, ob der Spieler tot ist
         if (currentHealth <= 0)
