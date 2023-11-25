@@ -57,7 +57,7 @@ public class HUDController : MonoBehaviour
             p2Health.text = p2LeoHP.ToString();
         }
 
-        if(this.isGameOver == true)
+        if (this.isGameOver == true)
         {
             this.isGameOver = false;
             GameOverController gameOverController = this.gameOverGroup.GetComponent<GameOverController>();
@@ -102,4 +102,9 @@ public class HUDController : MonoBehaviour
         this.gameOverGroup.alpha = 1.0f;
         this.isGameOver = true;
     }
+    public float GetTimePercent()
+    {
+        return matchTimeInSec / (matchTimeInMin * 60);
+    }
+
 }
