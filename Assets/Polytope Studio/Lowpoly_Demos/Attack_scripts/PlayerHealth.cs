@@ -28,6 +28,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         // Hier kannst du den Code für den Tod des Spielers einfügen
-        Debug.Log("Player died!");
+        Debug.Log("Player1 died!");
     }
 }
