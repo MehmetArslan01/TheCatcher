@@ -18,7 +18,7 @@ public class PlayerAttackP2 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack();
         }
