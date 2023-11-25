@@ -3902,7 +3902,7 @@ PrefabInstance:
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -3918,12 +3918,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _networkBehaviours.Array.data[2]
       value: 
-      objectReference: {fileID: 1763076924}
+      objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.data[3]
       value: 
-      objectReference: {fileID: 1763076924}
+      objectReference: {fileID: 1763076934}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: SerializedTransformProperties.Position.x
@@ -3992,7 +3992,7 @@ PrefabInstance:
     - target: {fileID: 6133228148632120645, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6133228148632120645, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -4032,15 +4032,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1763076924}
-    - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1763076930}
     - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1763076933}
+    - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1763076934}
   m_SourcePrefab: {fileID: 100100000, guid: 87522188d18fcc74695dc9c4c8c0738d, type: 3}
 --- !u!1001 &707942154
 PrefabInstance:
@@ -9742,38 +9742,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1763076924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763076914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 135f1119b83508548b731a9c54d138f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentIndexCache: 2
-  _addedNetworkObject: {fileID: 1763076917}
-  _networkObjectCache: {fileID: 1763076917}
-  controller: {fileID: 1763076921}
-  animator: {fileID: 0}
-  footstepAudioSource: {fileID: 1612371393}
-  footstepSound: {fileID: 8300000, guid: 0056868aff218604e8b0c859b2f72e32, type: 3}
-  hitSound: {fileID: 8300000, guid: 77aa9d98608f26f428a5b5856a895d03, type: 3}
-  speed: 4
-  rotationSpeed: 90
-  gravity: -9.18
-  jumpHeight: 3
-  attackDuration: 0.5
-  playerCamera: {fileID: 0}
-  groundCheck: {fileID: 1143006926}
-  groundDistance: 0.5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  leoHeight: 0
 --- !u!114 &1763076925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4346499914123958079, guid: 87522188d18fcc74695dc9c4c8c0738d,
@@ -9828,6 +9796,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d400c583a8567f5488b879f6ee9a7767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1763076934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763076914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5721f45a4372242a249d3bb70958a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 2
+  _addedNetworkObject: {fileID: 1763076917}
+  _networkObjectCache: {fileID: 1763076917}
+  controller: {fileID: 1763076921}
+  animator: {fileID: 0}
+  footstepAudioSource: {fileID: 1612371393}
+  footstepSound: {fileID: 8300000, guid: 0056868aff218604e8b0c859b2f72e32, type: 3}
+  hitSound: {fileID: 8300000, guid: 77aa9d98608f26f428a5b5856a895d03, type: 3}
+  speed: 4
+  rotationSpeed: 90
+  gravity: -9.18
+  jumpHeight: 3
+  attackDuration: 0.5
+  playerCamera: {fileID: 0}
+  groundCheck: {fileID: 1143006926}
+  groundDistance: 0.5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  leoHeight: 0
 --- !u!1 &1771837137
 GameObject:
   m_ObjectHideFlags: 0
@@ -11274,21 +11274,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2836e36774ca1c4bbbee976e17b649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2005279735 stripped
+--- !u!4 &2005279736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 699920508906421409, guid: 87522188d18fcc74695dc9c4c8c0738d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9217484843484498644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2005279742 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5753237565740018894, guid: 87522188d18fcc74695dc9c4c8c0738d,
+  m_CorrespondingSourceObject: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
     type: 3}
   m_PrefabInstance: {fileID: 9217484843484498644}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788013371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5721f45a4372242a249d3bb70958a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2005279736 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 699920508906421409, guid: 87522188d18fcc74695dc9c4c8c0738d,
+--- !u!143 &2005279744 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 7127778298914390433, guid: 87522188d18fcc74695dc9c4c8c0738d,
     type: 3}
   m_PrefabInstance: {fileID: 9217484843484498644}
   m_PrefabAsset: {fileID: 0}
@@ -11316,6 +11322,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca93884b03ce834496cbb55e5e84cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2005279748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788013371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d400c583a8567f5488b879f6ee9a7767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2005279749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788013371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b366db23c3ffec439a34b5ef1981d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2005279750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788013371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135f1119b83508548b731a9c54d138f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 2
+  _addedNetworkObject: {fileID: 2005279742}
+  _networkObjectCache: {fileID: 2005279742}
+  controller: {fileID: 2005279744}
+  animator: {fileID: 0}
+  footstepAudioSource: {fileID: 1612371393}
+  footstepSound: {fileID: 8300000, guid: 0056868aff218604e8b0c859b2f72e32, type: 3}
+  hitSound: {fileID: 8300000, guid: 77aa9d98608f26f428a5b5856a895d03, type: 3}
+  speed: 4
+  rotationSpeed: 90
+  gravity: -9.18
+  jumpHeight: 2
+  attackDuration: 0.5
+  playerCamera: {fileID: 0}
+  groundCheck: {fileID: 1143006926}
+  groundDistance: 0.5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  leoHeight: 0
 --- !u!1 &2092571622
 GameObject:
   m_ObjectHideFlags: 0
@@ -11408,6 +11470,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104138400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2533162975863610998, guid: 87522188d18fcc74695dc9c4c8c0738d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9217484843484498644}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97c62e14a9f5424099186dc62e5e779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2129354786
 GameObject:
   m_ObjectHideFlags: 0
@@ -22645,13 +22719,13 @@ PrefabInstance:
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.data[0]
       value: 
-      objectReference: {fileID: 2005279735}
+      objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.data[1]
@@ -22662,6 +22736,16 @@ PrefabInstance:
       propertyPath: _networkBehaviours.Array.data[2]
       value: 
       objectReference: {fileID: 2005279732}
+    - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      propertyPath: _networkBehaviours.Array.data[3]
+      value: 
+      objectReference: {fileID: 2005279750}
+    - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      propertyPath: _networkBehaviours.Array.data[4]
+      value: 
+      objectReference: {fileID: 2104138400}
     - target: {fileID: 3404688199159285435, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: m_RenderPostProcessing
@@ -22695,7 +22779,7 @@ PrefabInstance:
     - target: {fileID: 6133228148632120645, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6133228148632120645, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -22717,7 +22801,8 @@ PrefabInstance:
       propertyPath: _clientAddress
       value: 192.168.240.37
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5753237565740018894, guid: 87522188d18fcc74695dc9c4c8c0738d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 699920508906421409, guid: 87522188d18fcc74695dc9c4c8c0738d,
@@ -22737,6 +22822,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2005279747}
+    - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2005279749}
+    - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2005279748}
+    - targetCorrespondingSourceObject: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2005279750}
     - targetCorrespondingSourceObject: {fileID: 1491485238609559380, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       insertIndex: -1
