@@ -15,7 +15,8 @@ public class HUDController : MonoBehaviour
     public TextMeshProUGUI p1Health;
     public TextMeshProUGUI p2Health;
 
-    private bool isGameOver = false;
+    public static bool isGameOver = false;
+    private bool isGameOverScreenVisible = false;
 
     public CanvasGroup gameOverGroup;
 
@@ -34,9 +35,10 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.matchTimeInSec <= 0.0f || IsPlayerDead())
+        if (this.matchTimeInSec <= 0.0f || IsPlayerDead() && !isGameOverScreenVisible)
         {
             TimerFinished();
+            this.isGameOverScreenVisible = true;
         }
         else
         {
@@ -57,9 +59,8 @@ public class HUDController : MonoBehaviour
             p2Health.text = p2LeoHP.ToString();
         }
 
-        if (this.isGameOver == true)
+        if (isGameOver == true)
         {
-            this.isGameOver = false;
             GameOverController gameOverController = this.gameOverGroup.GetComponent<GameOverController>();
             gameOverController.SetScoreAndWinnner(p1LeoHP, p2LeoHP);
         }
@@ -100,7 +101,7 @@ public class HUDController : MonoBehaviour
             timer += Time.deltaTime;
         }
         this.gameOverGroup.alpha = 1.0f;
-        this.isGameOver = true;
+        isGameOver = true;
     }
     public float GetTimePercent()
     {

@@ -4951,7 +4951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
-  matchTimeInMin: 9000
+  matchTimeInMin: 0.1
   p1Health: {fileID: 1011471146}
   p2Health: {fileID: 688042873}
   gameOverGroup: {fileID: 690960147}
