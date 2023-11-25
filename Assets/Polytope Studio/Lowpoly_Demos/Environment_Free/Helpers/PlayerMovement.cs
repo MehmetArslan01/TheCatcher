@@ -47,7 +47,7 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         // Überprüfen, ob der Charakter am Boden ist
-        isGrounded = CheckIfGrounded();
+        isGrounded = controller.isGrounded;
 
         if (isGrounded && velocity.y < 0)
         {
@@ -67,6 +67,7 @@ public class PlayerMovement : NetworkBehaviour
         if (Input.GetButtonDown("Jump2") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Debug.Log("juuump");
         }
 
         // Anwenden der Schwerkraft
