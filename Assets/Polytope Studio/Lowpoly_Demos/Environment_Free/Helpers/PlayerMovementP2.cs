@@ -79,7 +79,7 @@ public class PlayerMovementP2 : NetworkBehaviour
 
         animator.SetBool("runForward", isMovingForward);
         animator.SetBool("runBackward", isMovingBackward);
-        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isJumping", !isGrounded && velocity.y > 0);
 
         // Angriffslogik
         if (Input.GetButtonDown("Fire1") && !isAttacking)

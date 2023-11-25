@@ -35,7 +35,6 @@ public class PlayerMovement : NetworkBehaviour
     private float leoCollisionDelay = 3f;
     public static int numberOfLeos;
 
-
     public float leoHeight;
 
     void Start()
@@ -48,7 +47,8 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         // Überprüfen, ob der Charakter am Boden ist
-        isGrounded = controller.isGrounded;
+        isGrounded = CheckIfGrounded();
+
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = 0f;
@@ -79,7 +79,7 @@ public class PlayerMovement : NetworkBehaviour
 
         animator.SetBool("runForward", isMovingForward);
         animator.SetBool("runBackward", isMovingBackward);
-        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isJumping", !isGrounded && velocity.y > 0);
 
         // Angriffslogik
         if (Input.GetButtonDown("Fire2") && !isAttacking)
@@ -118,6 +118,27 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isAttacking", false);
     }
 
+    bool CheckIfGrounded()
+    {
+        float rayLength = 0.1f; // Länge der Raycast-Linie
+        float slopeLimit = controller.slopeLimit; // Der maximale Winkel, den der Charakter hochgehen kann
+
+        RaycastHit hit;
+
+        // Überprüfen, ob die Raycast-Linie etwas trifft
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, rayLength, groundMask))
+        {
+            // Überprüfen, ob die Oberfläche geneigt ist
+            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+            if (slopeAngle <= slopeLimit)
+            {
+                return true; // Der Charakter steht auf einem nicht zu steilen Untergrund
+            }
+        }
+
+        return false; // Der Charakter steht nicht auf dem Boden oder auf einem zu steilen Untergrund
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
@@ -152,8 +173,7 @@ public class PlayerMovement : NetworkBehaviour
             other.gameObject.tag = "Untagged";
 
             // Slow the player with each NPCs
-            speed = (float)(speed - (0.2 * numberOfLeos)); 
+            speed = (float)(speed - (0.2 * numberOfLeos));
         }
     }
-
 }
