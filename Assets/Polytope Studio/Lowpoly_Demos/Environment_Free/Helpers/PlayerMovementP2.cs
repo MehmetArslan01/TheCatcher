@@ -154,4 +154,17 @@ public class PlayerMovementP2 : NetworkBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            animator.SetBool("isSwimming", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        animator.SetBool("isSwimming", false);
+    }
+
 }
