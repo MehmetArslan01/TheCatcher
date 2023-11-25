@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AttackAreaP2: MonoBehaviour
 {
-    private int damage = 3;
+    private int damage = 1;
 
     private void OnTriggerEnter(Collider other)
     {

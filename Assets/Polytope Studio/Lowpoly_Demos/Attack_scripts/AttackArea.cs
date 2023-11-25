@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
-    private int damage = 3;
+    private int damage = 1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +16,7 @@ public class AttackArea : MonoBehaviour
             CapsuleCollider playerCollider = other.GetComponent<CapsuleCollider>();
             if (playerCollider != null && other == playerCollider)
             {
-                Debug.Log("Player 1 Attacks and hits");
+                Debug.Log("Player 1 Attacks and hits" + damage);
 
                 // Füge den Schaden dem anderen Spieler hinzu
                 PlayerHealthP2 playerHealth = other.GetComponent<PlayerHealthP2>();

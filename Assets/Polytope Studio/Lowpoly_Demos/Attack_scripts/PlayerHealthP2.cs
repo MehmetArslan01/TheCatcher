@@ -6,22 +6,15 @@ using UnityEngine;
 
 public class PlayerHealthP2 : MonoBehaviour
 {
-    public int maxHealth = 10;
-    private int currentHealth;
-
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
-
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-                Debug.Log(currentHealth + " player2");
+        PlayerMovementP2.numberOfLeos -= damage;
+
+        Debug.Log(PlayerMovementP2.numberOfLeos + " player2");
 
 
         // Überprüfe, ob der Spieler tot ist
-        if (currentHealth <= 0)
+        if (PlayerMovementP2.numberOfLeos < 0)
         {
             Die();
         }
