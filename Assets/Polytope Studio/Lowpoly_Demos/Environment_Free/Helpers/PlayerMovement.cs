@@ -83,7 +83,7 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isJumping", !isGrounded);
 
         // Angriffslogik
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
+        if (Input.GetButtonDown("Fire2") && !isAttacking)
         {
             StartAttack();
         }
