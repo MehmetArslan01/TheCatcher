@@ -1,3 +1,5 @@
+// AttackArea.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +17,13 @@ public class AttackArea : MonoBehaviour
             if (playerCollider != null && other == playerCollider)
             {
                 Debug.Log("Player 1 Attacks and hits");
-                // Hier kannst du den Code für den Schaden einfügen, wenn nötig
+
+                // Füge den Schaden dem anderen Spieler hinzu
+                PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(damage);
+                }
             }
         }
     }

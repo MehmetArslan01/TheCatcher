@@ -1,8 +1,10 @@
+// AttackArea.cs
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackAreaP2 : MonoBehaviour
+public class AttackAreaP2: MonoBehaviour
 {
     private int damage = 3;
 
@@ -14,8 +16,14 @@ public class AttackAreaP2 : MonoBehaviour
             CapsuleCollider playerCollider = other.GetComponent<CapsuleCollider>();
             if (playerCollider != null && other == playerCollider)
             {
-                Debug.Log("Player2 Attacks and hits");
-                // Hier kannst du den Code für den Schaden einfügen, wenn nötig
+                Debug.Log("Player 2 Attacks and hits");
+
+                // Füge den Schaden dem anderen Spieler hinzu
+                PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(damage);
+                }
             }
         }
     }
