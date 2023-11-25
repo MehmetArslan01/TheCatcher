@@ -15,6 +15,8 @@ public class HUDController : MonoBehaviour
     public TextMeshProUGUI p1Health;
     public TextMeshProUGUI p2Health;
 
+    private bool isGameOver = false;
+
     public CanvasGroup gameOverGroup;
 
     // Start is called before the first frame update
@@ -54,6 +56,13 @@ public class HUDController : MonoBehaviour
             p2LeoHP = (PlayerMovementP2.numberOfLeos + 1);
             p2Health.text = p2LeoHP.ToString();
         }
+
+        if(this.isGameOver == true)
+        {
+            this.isGameOver = false;
+            GameOverController gameOverController = this.gameOverGroup.GetComponent<GameOverController>();
+            gameOverController.SetScoreAndWinnner(p1LeoHP, p2LeoHP);
+        }
     }
 
     private void TimerFinished()
@@ -91,5 +100,6 @@ public class HUDController : MonoBehaviour
             timer += Time.deltaTime;
         }
         this.gameOverGroup.alpha = 1.0f;
+        this.isGameOver = true;
     }
 }
