@@ -33,7 +33,7 @@ public class PlayerMovementP2 : NetworkBehaviour
 
     private float lastLeoCollisionTime = 0f;
     private float leoCollisionDelay = 3f;
-    public int numberOfLeos;
+    public static int numberOfLeos;
 
 
     public float leoHeight;
