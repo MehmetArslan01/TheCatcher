@@ -119,26 +119,6 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isAttacking", false);
     }
 
-    bool CheckIfGrounded()
-    {
-        float rayLength = 0.1f; // Länge der Raycast-Linie
-        float slopeLimit = controller.slopeLimit; // Der maximale Winkel, den der Charakter hochgehen kann
-
-        RaycastHit hit;
-
-        // Überprüfen, ob die Raycast-Linie etwas trifft
-        if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, rayLength, groundMask))
-        {
-            // Überprüfen, ob die Oberfläche geneigt ist
-            float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
-            if (slopeAngle <= slopeLimit)
-            {
-                return true; // Der Charakter steht auf einem nicht zu steilen Untergrund
-            }
-        }
-
-        return false; // Der Charakter steht nicht auf dem Boden oder auf einem zu steilen Untergrund
-    }
 
     private void OnCollisionEnter(Collision other)
     {
