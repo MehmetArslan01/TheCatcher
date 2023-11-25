@@ -31,7 +31,6 @@ public class RandomCharacterPlacement : MonoBehaviour
             // Aktivieren Sie die Animation für den erstellten Charakter.
             
             // Zeigen Sie eine Debug-Nachricht an, um zu bestätigen, dass der Charakter erstellt wurde.
-            Debug.Log("Character created at position: " + randomPosition);
         }
     }
 }

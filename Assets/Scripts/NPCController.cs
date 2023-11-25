@@ -81,7 +81,6 @@ public class NPCController : MonoBehaviour
             // Ändere die Richtung beim Kollidieren mit einem Border-Objekt
             heading = transform.eulerAngles.y + 180;
             targetRotation = new Vector3(0, heading, 0);
-            Debug.Log("Collison: " + targetRotation);
         }
     }
 }
