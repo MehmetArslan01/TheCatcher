@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.022361845, g: 0.0110359555, b: 0.0754717, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.1
@@ -3413,7 +3413,7 @@ GameObject:
   - component: {fileID: 688042874}
   - component: {fileID: 688042873}
   m_Layer: 5
-  m_Name: HealthPoints
+  m_Name: P1HealthPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4774,6 +4774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
   matchTimeInMin: 9000
+  p1Health: {fileID: 688042873}
+  p2Health: {fileID: 1011471146}
   gameOverGroup: {fileID: 690960147}
 --- !u!1 &1011112319
 GameObject:
@@ -4879,7 +4881,7 @@ GameObject:
   - component: {fileID: 1011471147}
   - component: {fileID: 1011471146}
   m_Layer: 5
-  m_Name: HealthPoints
+  m_Name: P2HealthPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9512,7 +9514,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  numberOfLeos: 0
   leoHeight: 0
 --- !u!114 &1763076925 stripped
 MonoBehaviour:

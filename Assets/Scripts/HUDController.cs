@@ -8,15 +8,25 @@ public class HUDController : MonoBehaviour
 {
     public TextMeshProUGUI time;
     public float matchTimeInMin;
-    public CanvasGroup gameOverGroup;
-
     private float matchTimeInSec;
 
+    private static int p1LeoHP;
+    private static int p2LeoHP;
+    public TextMeshProUGUI p1Health;
+    public TextMeshProUGUI p2Health;
+
+    public CanvasGroup gameOverGroup;
 
     // Start is called before the first frame update
     void Start()
     {
         this.matchTimeInSec = (this.matchTimeInMin * 60);
+
+        p1LeoHP = 1;
+        p2LeoHP = 1;
+
+        this.p1Health.text = p1LeoHP.ToString();
+        this.p2Health.text = p2LeoHP.ToString();
     }
 
     // Update is called once per frame
@@ -31,6 +41,18 @@ public class HUDController : MonoBehaviour
             this.matchTimeInSec -= Time.deltaTime;
             var ts = TimeSpan.FromSeconds(this.matchTimeInSec);
             this.time.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+        }
+
+        if(p1LeoHP != (PlayerMovement.numberOfLeos + 1))
+        {
+            p1LeoHP = (PlayerMovement.numberOfLeos + 1);
+            p1Health.text = p1LeoHP.ToString();
+        }
+
+        if (p2LeoHP != (PlayerMovementP2.numberOfLeos + 1))
+        {
+            p2LeoHP = (PlayerMovementP2.numberOfLeos + 1);
+            p2Health.text = p2LeoHP.ToString();
         }
     }
 
