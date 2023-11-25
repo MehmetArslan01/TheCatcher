@@ -40,7 +40,5 @@ public class PlayerAttack : MonoBehaviour
     {
         attacking = true;
         attackArea.SetActive(attacking);
-        Debug.Log("Attack started");
-        // Hier können Sie die Logik für den Angriff implementieren
     }
 }

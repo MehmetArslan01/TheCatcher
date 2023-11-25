@@ -43,7 +43,6 @@ public class PlayerMovement : NetworkBehaviour
         animator = GetComponent<Animator>();
         characterCollider = GetComponent<CapsuleCollider>();
         numberOfLeos = 0;
-        Debug.Log("transform.position " + transform.position);
     }
 
     void Update()
@@ -109,7 +108,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         isAttacking = true;
         attackTimer = 0f;
-        Debug.Log("Attack started");
         animator.SetBool("isAttacking", true);
         // Hier können Sie die Logik für den Angriff implementieren
     }
@@ -117,7 +115,6 @@ public class PlayerMovement : NetworkBehaviour
     void EndAttack()
     {
         isAttacking = false;
-        Debug.Log("Attack ended");
         animator.SetBool("isAttacking", false);
     }
 

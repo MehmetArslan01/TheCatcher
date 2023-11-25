@@ -42,8 +42,7 @@ public class PlayerMovementP2 : NetworkBehaviour
     {
         animator = GetComponent<Animator>();
         characterCollider = GetComponent<CapsuleCollider>();
-numberOfLeos = 0;
-        Debug.Log("transform.position " + transform.position);
+        numberOfLeos = 0;
     }
 
     void Update()
@@ -68,9 +67,9 @@ numberOfLeos = 0;
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                    }
+        }
 
-// Anwenden der Schwerkraft
+        // Anwenden der Schwerkraft
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
@@ -99,17 +98,16 @@ numberOfLeos = 0;
 
         // Fußschritt-Audios
         if (isGrounded && (isMovingForward || isMovingBackward) && !footstepAudioSource.isPlaying)
-            {
-                footstepAudioSource.clip = footstepSound;
-                footstepAudioSource.Play();
-                    }
+        {
+            footstepAudioSource.clip = footstepSound;
+            footstepAudioSource.Play();
+        }
     }
 
     void StartAttack()
     {
         isAttacking = true;
         attackTimer = 0f;
-        Debug.Log("Attack started");
         animator.SetBool("isAttacking", true);
         // Hier können Sie die Logik für den Angriff implementieren
     }
@@ -117,7 +115,6 @@ numberOfLeos = 0;
     void EndAttack()
     {
         isAttacking = false;
-        Debug.Log("Attack ended");
         animator.SetBool("isAttacking", false);
     }
 
