@@ -18,6 +18,9 @@ public class NPCController : MonoBehaviour
     bool isFleeing = false;
     private bool isCaught = false;
 
+    public AudioSource audioSource;
+    public AudioClip[] leoSounds;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -35,6 +38,8 @@ public class NPCController : MonoBehaviour
         animator.SetBool("isRunning", true);
 
         StartCoroutine(NewHeading());
+
+        PlaySound();
     }
 
     void Update()
@@ -82,5 +87,20 @@ public class NPCController : MonoBehaviour
             heading = transform.eulerAngles.y + 180;
             targetRotation = new Vector3(0, heading, 0);
         }
+    }
+
+    void PlaySound()
+    {
+        if (!isCaught)
+        {
+            Invoke("GetRandomSound", Random.Range(0, 10));
+        }
+    }
+
+    void GetRandomSound()
+    {
+        audioSource.clip = leoSounds[Random.Range(0, leoSounds.Length)];
+        audioSource.Play();
+        PlaySound();
     }
 }
