@@ -8,7 +8,7 @@ public class PlayerAttackP2 : MonoBehaviour
 {
     private GameObject attackArea = default;
     private bool attacking = false;
-    private float timeToAttack = 0.25f;
+    private float timeToAttack = 0.1f;
     private float timer = 0f;
 
     void Start()

@@ -4682,7 +4682,8 @@ MonoBehaviour:
   fleeDistance: 10
   player: {fileID: 0}
   audioSource: {fileID: 0}
-  leoSounds: []
+  leoSounds:
+  - {fileID: 8300000, guid: e0b841c6bbe923e459166d9746e73229, type: 3}
 --- !u!143 &964008539
 CharacterController:
   m_ObjectHideFlags: 0

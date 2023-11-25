@@ -11,6 +11,7 @@ public class PlayerHealthP2 : MonoBehaviour
         PlayerMovementP2.numberOfLeos -= damage;
 
         Debug.Log(PlayerMovementP2.numberOfLeos + " player2");
+        Debug.Log((new System.Diagnostics.StackTrace()).GetFrame(1).GetMethod().Name);
 
 
         // Überprüfe, ob der Spieler tot ist
