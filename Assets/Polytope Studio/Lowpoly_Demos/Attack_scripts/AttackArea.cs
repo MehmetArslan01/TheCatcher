@@ -8,7 +8,7 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player2") || other.CompareTag("Player1"))
+        if (other.CompareTag("Player2") || other.CompareTag("Player"))
         {
             // Überprüfe, ob der andere Collider der gewünschte ist
             CapsuleCollider playerCollider = other.GetComponent<CapsuleCollider>();
