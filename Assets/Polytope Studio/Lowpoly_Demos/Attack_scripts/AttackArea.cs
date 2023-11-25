@@ -19,7 +19,7 @@ public class AttackArea : MonoBehaviour
                 Debug.Log("Player 1 Attacks and hits" + damage);
 
                 // Füge den Schaden dem anderen Spieler hinzu
-                PlayerHealthP2 playerHealth = other.GetComponent<PlayerHealthP2>();
+                PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(damage);
