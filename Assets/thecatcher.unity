@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 69219433}
   - component: {fileID: 69219432}
   m_Layer: 5
-  m_Name: P1Score
+  m_Name: P2Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3730,8 +3730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce148b1a92f1400592ed0f340e3e55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Score: {fileID: 69219432}
-  p2Score: {fileID: 1461627821}
+  p1Score: {fileID: 1461627821}
+  p2Score: {fileID: 69219432}
   winner: {fileID: 689798803}
 --- !u!1001 &701612838
 PrefabInstance:
@@ -4828,9 +4828,16 @@ MonoBehaviour:
   maxHeadingChange: 30
   fleeDistance: 10
   player: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 426111272}
   leoSounds:
+  - {fileID: 8300000, guid: 5217146474a0a0b4092d179199e1339a, type: 3}
   - {fileID: 8300000, guid: e0b841c6bbe923e459166d9746e73229, type: 3}
+  - {fileID: 8300000, guid: 999af4bc8090f794d812c81834ef6213, type: 3}
+  - {fileID: 8300000, guid: e81caa18fa323c544a8bf9fb8b0017c2, type: 3}
+  - {fileID: 8300000, guid: a548cc8437dc0f048a69b57424b656ae, type: 3}
+  - {fileID: 8300000, guid: 18ba45b88f5702e4e987e35e269462d1, type: 3}
+  - {fileID: 8300000, guid: 871311ec9b87ef248823c4bad3f4e957, type: 3}
+  - {fileID: 8300000, guid: 2aff74c8af4f15c47bb7c0d6329abaa9, type: 3}
 --- !u!143 &964008539
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5101,7 +5108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
-  matchTimeInMin: 10
+  matchTimeInMin: 0.1
   p1Health: {fileID: 1011471146}
   p2Health: {fileID: 688042873}
   gameOverGroup: {fileID: 690960147}
@@ -7308,7 +7315,7 @@ GameObject:
   - component: {fileID: 1461627822}
   - component: {fileID: 1461627821}
   m_Layer: 5
-  m_Name: P2Score
+  m_Name: P1Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
