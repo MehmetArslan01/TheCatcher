@@ -3413,7 +3413,7 @@ GameObject:
   - component: {fileID: 688042874}
   - component: {fileID: 688042873}
   m_Layer: 5
-  m_Name: P1HealthPoints
+  m_Name: P2HealthPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4774,8 +4774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
   matchTimeInMin: 9000
-  p1Health: {fileID: 688042873}
-  p2Health: {fileID: 1011471146}
+  p1Health: {fileID: 1011471146}
+  p2Health: {fileID: 688042873}
   gameOverGroup: {fileID: 690960147}
 --- !u!1 &1011112319
 GameObject:
@@ -4881,7 +4881,7 @@ GameObject:
   - component: {fileID: 1011471147}
   - component: {fileID: 1011471146}
   m_Layer: 5
-  m_Name: P2HealthPoints
+  m_Name: P1HealthPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9600,7 +9600,7 @@ GameObject:
   - component: {fileID: 1774243735}
   - component: {fileID: 1774243734}
   m_Layer: 5
-  m_Name: P2Health
+  m_Name: P1Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 1842892105}
   - component: {fileID: 1842892104}
   m_Layer: 5
-  m_Name: P1Health
+  m_Name: P2Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
