@@ -32,7 +32,7 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.matchTimeInSec <= 0.0f)
+        if (this.matchTimeInSec <= 0.0f || IsPlayerDead())
         {
             TimerFinished();
         }
@@ -43,7 +43,7 @@ public class HUDController : MonoBehaviour
             this.time.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
         }
 
-        if(p1LeoHP != (PlayerMovement.numberOfLeos + 1))
+        if (p1LeoHP != (PlayerMovement.numberOfLeos + 1))
         {
             p1LeoHP = (PlayerMovement.numberOfLeos + 1);
             p1Health.text = p1LeoHP.ToString();
@@ -63,6 +63,17 @@ public class HUDController : MonoBehaviour
         gameOverGroup.blocksRaycasts = true;
     }
 
+    private bool IsPlayerDead()
+    {
+        if (p1LeoHP < 1 || p2LeoHP < 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     private IEnumerator FadeInGameOverRoutine()
     {
