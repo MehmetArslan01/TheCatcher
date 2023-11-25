@@ -47,60 +47,63 @@ public class PlayerMovementP2 : NetworkBehaviour
 
     void Update()
     {
-        // Überprüfen, ob der Charakter am Boden ist
-        isGrounded = controller.isGrounded;
-        if (isGrounded && velocity.y < 0)
+        if (!HUDController.isGameOver)
         {
-            velocity.y = 0f;
-        }
-
-        float x = Input.GetAxis("HorizontalSecond");
-        float z = Input.GetAxis("VerticalSecond");
-
-        Vector3 move = transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
-
-        // Sprunglogik
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        // Anwenden der Schwerkraft
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-
-        // Animationstrigger für Vorwärts- und Rückwärtsbewegung
-        isMovingForward = z > 0;
-        isMovingBackward = z < 0;
-
-        animator.SetBool("runForward", isMovingForward);
-        animator.SetBool("runBackward", isMovingBackward);
-        animator.SetBool("isJumping", !isGrounded && velocity.y > 0);
-
-        // Angriffslogik
-        if (Input.GetButtonDown("Fire1") && !isAttacking)
-        {
-            StartAttack();
-        }
-
-        if (isAttacking)
-        {
-            attackTimer += Time.deltaTime;
-            if (attackTimer >= attackDuration)
+            // Überprüfen, ob der Charakter am Boden ist
+            isGrounded = controller.isGrounded;
+            if (isGrounded && velocity.y < 0)
             {
-                EndAttack();
+                velocity.y = 0f;
             }
-        }
 
-        // Fußschritt-Audios
-        if (isGrounded && (isMovingForward || isMovingBackward) && !footstepAudioSource.isPlaying)
-        {
-            footstepAudioSource.clip = footstepSound;
-            footstepAudioSource.Play();
+            float x = Input.GetAxis("HorizontalSecond");
+            float z = Input.GetAxis("VerticalSecond");
+
+            Vector3 move = transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            transform.Rotate(Vector3.up * x * rotationSpeed * Time.deltaTime);
+
+            // Sprunglogik
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            // Anwenden der Schwerkraft
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+            // Animationstrigger für Vorwärts- und Rückwärtsbewegung
+            isMovingForward = z > 0;
+            isMovingBackward = z < 0;
+
+            animator.SetBool("runForward", isMovingForward);
+            animator.SetBool("runBackward", isMovingBackward);
+            animator.SetBool("isJumping", !isGrounded && velocity.y > 0);
+
+            // Angriffslogik
+            if (Input.GetButtonDown("Fire1") && !isAttacking)
+            {
+                StartAttack();
+            }
+
+            if (isAttacking)
+            {
+                attackTimer += Time.deltaTime;
+                if (attackTimer >= attackDuration)
+                {
+                    EndAttack();
+                }
+            }
+
+            // Fußschritt-Audios
+            if (isGrounded && (isMovingForward || isMovingBackward) && !footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.clip = footstepSound;
+                footstepAudioSource.Play();
+            }
         }
     }
 

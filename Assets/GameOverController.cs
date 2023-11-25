@@ -11,7 +11,6 @@ public class GameOverController : MonoBehaviour
 
     public void SetScoreAndWinnner(int p1LeoCount, int p2LeoCount)
     {
-        //TODO: handle this better
         this.p1Score.text = "Player 1: " + p1LeoCount;
         this.p2Score.text = "Player 2: " + p2LeoCount;
 
