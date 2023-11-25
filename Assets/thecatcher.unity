@@ -3827,7 +3827,7 @@ PrefabInstance:
     - target: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: m_TagString
-      value: Player2
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 699920508906421409, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -22537,7 +22537,7 @@ PrefabInstance:
     - target: {fileID: 215413371813553691, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 699920508906421409, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -22755,8 +22755,8 @@ SceneRoots:
   - {fileID: 333149449}
   - {fileID: 507411181}
   - {fileID: 171107487}
-  - {fileID: 9217484843484498644}
   - {fileID: 707363447}
+  - {fileID: 9217484843484498644}
   - {fileID: 964008532}
   - {fileID: 54647632}
   - {fileID: 1006462224}
