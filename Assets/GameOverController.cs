@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
@@ -26,5 +27,10 @@ public class GameOverController : MonoBehaviour
         {
             winner.text = "Draw";
         }
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
     }
 }
