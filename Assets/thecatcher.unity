@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
-  matchTimeInMin: 0.1
+  matchTimeInMin: 10
   p1Health: {fileID: 1011471146}
   p2Health: {fileID: 688042873}
   hudGroup: {fileID: 1935675304}
