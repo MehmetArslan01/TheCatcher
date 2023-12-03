@@ -48,23 +48,26 @@ public class HUDController : MonoBehaviour
             this.time.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
         }
 
-        if (p1LeoHP != (PlayerMovement.numberOfLeos + 1))
-        {
-            p1LeoHP = (PlayerMovement.numberOfLeos + 1);
-            p1Health.text = p1LeoHP.ToString();
-        }
-
-        if (p2LeoHP != (PlayerMovementP2.numberOfLeos + 1))
-        {
-            p2LeoHP = (PlayerMovementP2.numberOfLeos + 1);
-            p2Health.text = p2LeoHP.ToString();
-        }
-
         if (isGameOver == true)
         {
             GameOverController gameOverController = this.gameOverGroup.GetComponent<GameOverController>();
             gameOverController.SetScoreAndWinnner(p1LeoHP, p2LeoHP);
+        } 
+        else
+        {
+            if (p1LeoHP != (PlayerMovement.numberOfLeos + 1))
+            {
+                p1LeoHP = (PlayerMovement.numberOfLeos + 1);
+                p1Health.text = p1LeoHP.ToString();
+            }
+
+            if (p2LeoHP != (PlayerMovementP2.numberOfLeos + 1))
+            {
+                p2LeoHP = (PlayerMovementP2.numberOfLeos + 1);
+                p2Health.text = p2LeoHP.ToString();
+            }
         }
+
     }
 
     private void TimerFinished()
