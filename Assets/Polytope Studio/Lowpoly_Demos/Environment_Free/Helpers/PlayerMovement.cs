@@ -123,12 +123,10 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetBool("isAttacking", false);
     }
 
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
         {
-
             NPCController leoController = other.gameObject.GetComponent<NPCController>();
 
             if (leoController == null)
@@ -138,35 +136,92 @@ public class PlayerMovement : NetworkBehaviour
 
             if (!isAttacking)
             {
-                StartAttack();
+                StartCoroutine(DelayedCollisionResponse(other));
             }
-
-            stackedNPCs.Add(other.gameObject);
-
-            leoController.GetCaught();
-
-            Transform leoTransform = other.transform;
-            Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
-            Vector3 characterTopPosition = transform.position + stackPositionOffset;
-            leoTransform.position = characterTopPosition;
-            leoTransform.rotation = transform.rotation * Quaternion.Euler(20f, 0f, 0f);
-
-            leoTransform.SetParent(transform);
-
-            Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
-            if (leoRigidbody != null)
-            {
-                Destroy(leoRigidbody); // Entfernen Sie den Rigidbody vollständig
-            }
-
-            numberOfLeos++;
-            lastLeoCollisionTime = Time.time;
-            other.gameObject.tag = "Untagged";
-
-            // Slow the player with each NPCs
-            speed = (float)(speed - (0.2 * numberOfLeos));
         }
     }
+
+    private IEnumerator DelayedCollisionResponse(Collision other)
+    {
+        StartAttack();
+
+        // Warten für 1 Sekunde
+        yield return new WaitForSeconds(0.5f);
+
+        // Rest des Codes nach der Verzögerung
+        stackedNPCs.Add(other.gameObject);
+
+        NPCController leoController = other.gameObject.GetComponent<NPCController>();
+        leoController.GetCaught();
+
+        Transform leoTransform = other.transform;
+        Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
+        Vector3 characterTopPosition = transform.position + stackPositionOffset;
+        leoTransform.position = characterTopPosition;
+        leoTransform.rotation = transform.rotation * Quaternion.Euler(20f, 0f, 0f);
+
+        leoTransform.SetParent(transform);
+
+        Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
+        if (leoRigidbody != null)
+        {
+            Destroy(leoRigidbody);
+        }
+
+        numberOfLeos++;
+        lastLeoCollisionTime = Time.time;
+        other.gameObject.tag = "Untagged";
+
+        // Slow the player with each NPCs
+        speed = (float)(speed - (0.2 * numberOfLeos));
+    }
+
+
+    /*private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
+        {
+
+            NPCController leoController = other.gameObject.GetComponent<NPCController>();
+
+            if (leoController != null)
+            {
+
+
+                if (!isAttacking)
+                {
+                    StartAttack();
+                }
+
+                yield return new WaitForSeconds(1f);
+
+                stackedNPCs.Add(other.gameObject);
+
+                leoController.GetCaught();
+
+                Transform leoTransform = other.transform;
+                Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
+                Vector3 characterTopPosition = transform.position + stackPositionOffset;
+                leoTransform.position = characterTopPosition;
+                leoTransform.rotation = transform.rotation * Quaternion.Euler(20f, 0f, 0f);
+
+                leoTransform.SetParent(transform);
+
+                Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
+                if (leoRigidbody != null)
+                {
+                    Destroy(leoRigidbody); // Entfernen Sie den Rigidbody vollständig
+                }
+
+                numberOfLeos++;
+                lastLeoCollisionTime = Time.time;
+                other.gameObject.tag = "Untagged";
+
+                // Slow the player with each NPCs
+                speed = (float)(speed - (0.2 * numberOfLeos));
+            }
+        }
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
