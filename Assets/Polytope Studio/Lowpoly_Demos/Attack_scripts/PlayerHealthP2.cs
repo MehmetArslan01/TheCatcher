@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerHealthP2 : MonoBehaviour
 {
     private bool canAttack = true;
+    public AudioSource audioSource;
 
     public void TakeDamage(int damage)
     {
@@ -28,6 +29,7 @@ public class PlayerHealthP2 : MonoBehaviour
         {
             Die();
         }
+        audioSource.Play();
     }
 
     void Die()

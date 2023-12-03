@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     private bool canAttack = true;
-    
+    public AudioSource audioSource;
+
     public void TakeDamage(int damage)
     {
         if (PlayerMovement.numberOfLeos >= 0 && this.canAttack)
@@ -28,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+        audioSource.Play();
     }
 
     void Die()
