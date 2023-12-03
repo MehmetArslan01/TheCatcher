@@ -3912,7 +3912,7 @@ PrefabInstance:
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
@@ -3928,7 +3928,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _networkBehaviours.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1763076934}
     - target: {fileID: 3092304128942411812, guid: 87522188d18fcc74695dc9c4c8c0738d,
         type: 3}
       propertyPath: _networkBehaviours.Array.data[3]
@@ -5108,7 +5108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 1873313748}
-  matchTimeInMin: 0.1
+  matchTimeInMin: 10
   p1Health: {fileID: 1011471146}
   p2Health: {fileID: 688042873}
   gameOverGroup: {fileID: 690960147}
@@ -10033,7 +10033,6 @@ MonoBehaviour:
   rotationSpeed: 90
   gravity: -9.18
   jumpHeight: 3
-  attackDuration: 0.5
   playerCamera: {fileID: 0}
   groundCheck: {fileID: 1143006926}
   groundDistance: 0.5
@@ -11574,7 +11573,6 @@ MonoBehaviour:
   rotationSpeed: 90
   gravity: -9.18
   jumpHeight: 2
-  attackDuration: 0.5
   playerCamera: {fileID: 0}
   groundCheck: {fileID: 1143006926}
   groundDistance: 0.5

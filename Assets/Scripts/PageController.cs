@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PageController : MonoBehaviour
 {
     private List<CanvasGroup> pages = new List<CanvasGroup>();
+
+    public List<Button> pageIndicator = new List<Button>();
     public int currentPageIndex = 0;
 
 
@@ -21,7 +24,6 @@ public class PageController : MonoBehaviour
 
         ResetCurrentPageIndex();
         SetPageVisibility();
-
     }
 
     public void GetNextPage()
@@ -29,6 +31,7 @@ public class PageController : MonoBehaviour
 
         if (this.currentPageIndex >= (this.pages.Count - 1))
         {
+            this.pageIndicator[this.currentPageIndex].Select();
             return;
         }
         else
@@ -42,6 +45,7 @@ public class PageController : MonoBehaviour
     {
         if (this.currentPageIndex == 0)
         {
+            this.pageIndicator[0].Select();
             return;
         }
         else
@@ -58,10 +62,13 @@ public class PageController : MonoBehaviour
             if (i == this.currentPageIndex)
             {
                 this.pages[i].alpha = 1.0f;
+                this.pageIndicator[i].Select();
+                this.pageIndicator[i].image.color = new Color(176,0,0);
             }
             else
             {
                 this.pages[i].alpha = 0.0f;
+                this.pageIndicator[i].image.color = Color.white;
             }
         }
     }
@@ -69,6 +76,12 @@ public class PageController : MonoBehaviour
     public void ResetCurrentPageIndex()
     {
         this.currentPageIndex = 0;
+        SetPageVisibility();
+    }
+
+    public void SetCurrentPage(int selectedPage)
+    {
+        this.currentPageIndex = selectedPage;
         SetPageVisibility();
     }
 }

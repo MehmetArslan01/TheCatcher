@@ -16,7 +16,7 @@ public class PlayerMovementP2 : NetworkBehaviour
     public float rotationSpeed = 90f;
     public float gravity = -9.18f;
     public float jumpHeight = 3f;
-    public float attackDuration = 0.5f;
+    private float attackDuration = 1f;
     private bool isAttacking = false;
     private float attackTimer = 0f;
     public Camera playerCamera;
@@ -37,6 +37,7 @@ public class PlayerMovementP2 : NetworkBehaviour
 
 
     public float leoHeight;
+    public List<GameObject> stackedNPCs = new List<GameObject>();
 
     void Start()
     {
@@ -125,16 +126,22 @@ public class PlayerMovementP2 : NetworkBehaviour
     {
         if (other.gameObject.tag == "Leo" && Time.time - lastLeoCollisionTime >= leoCollisionDelay)
         {
+
+            NPCController leoController = other.gameObject.GetComponent<NPCController>();
+
+            if (leoController == null)
+            {
+                return;
+            }
+
             if (!isAttacking)
             {
                 StartAttack();
             }
 
-            NPCController leoController = other.gameObject.GetComponent<NPCController>();
-            if (leoController != null)
-            {
-                leoController.GetCaught();
-            }
+            stackedNPCs.Add(other.gameObject);
+
+            leoController.GetCaught();
 
             Transform leoTransform = other.transform;
             Vector3 stackPositionOffset = new Vector3(0, (characterCollider.height - 0.6f) + ((characterCollider.height - 1.3f) * numberOfLeos), 0);
@@ -154,6 +161,9 @@ public class PlayerMovementP2 : NetworkBehaviour
             numberOfLeos++;
             lastLeoCollisionTime = Time.time;
             other.gameObject.tag = "Untagged";
+
+            // Slow the player with each NPCs
+            speed = (float)(speed - (0.2 * numberOfLeos));
         }
     }
 
@@ -168,6 +178,16 @@ public class PlayerMovementP2 : NetworkBehaviour
     private void OnTriggerExit(Collider other)
     {
         animator.SetBool("isSwimming", false);
+    }
+
+    public void removeNPC()
+    {
+        if (stackedNPCs.Count > 0)
+        {
+            GameObject lastNPC = stackedNPCs[stackedNPCs.Count - 1];
+            stackedNPCs.RemoveAt(stackedNPCs.Count - 1);
+            Destroy(lastNPC);
+        }
     }
 
 }
