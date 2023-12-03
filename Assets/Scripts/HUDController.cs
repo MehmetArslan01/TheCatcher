@@ -18,6 +18,7 @@ public class HUDController : MonoBehaviour
     public static bool isGameOver = false;
     private bool isGameOverScreenVisible = false;
 
+    public CanvasGroup hudGroup;
     public CanvasGroup gameOverGroup;
 
     // Start is called before the first frame update
@@ -95,6 +96,7 @@ public class HUDController : MonoBehaviour
             float percent = timer / fadeInTime;
 
             this.gameOverGroup.alpha = 0.0f + percent;
+            this.hudGroup.alpha = 1.0f - percent;
 
             yield return null;
 
@@ -102,7 +104,9 @@ public class HUDController : MonoBehaviour
         }
         this.gameOverGroup.alpha = 1.0f;
         isGameOver = true;
+        this.hudGroup.alpha = 0.0f;
     }
+
     public float GetTimePercent()
     {
         return matchTimeInSec / (matchTimeInMin * 60);
