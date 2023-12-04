@@ -114,7 +114,6 @@ public class PlayerMovement : NetworkBehaviour
         isAttacking = true;
         attackTimer = 0f;
         animator.SetBool("isAttacking", true);
-        // Hier können Sie die Logik für den Angriff implementieren
     }
 
     void EndAttack()
@@ -210,7 +209,7 @@ public class PlayerMovement : NetworkBehaviour
                 Rigidbody leoRigidbody = leoTransform.GetComponent<Rigidbody>();
                 if (leoRigidbody != null)
                 {
-                    Destroy(leoRigidbody); // Entfernen Sie den Rigidbody vollständig
+                    Destroy(leoRigidbody);
                 }
 
                 numberOfLeos++;

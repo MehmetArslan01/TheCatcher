@@ -1,4 +1,3 @@
-// PlayerHealth.cs
 
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +33,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        // Hier kannst du den Code für den Tod des Spielers einfügen
         Debug.Log("Player1 died!");
     }
 

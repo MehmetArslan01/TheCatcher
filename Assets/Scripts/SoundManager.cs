@@ -12,8 +12,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        // TODO: Create singleton instance
-        if (Instance == null) { 
+        if (Instance == null) {
             Instance = this; 
             DontDestroyOnLoad(gameObject);
             }else{
@@ -23,7 +22,6 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip, Transform spawn, float volume)
     {
-        // TODO: Create SoundEffectObject instance and play soundeffect
         this.audioSource = Instantiate(soundEffectObject, spawn.position, Quaternion.identity);
         this.audioSource.clip = clip;
         this.audioSource.volume = volume;

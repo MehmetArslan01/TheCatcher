@@ -11,9 +11,8 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        float forwardMovement = Input.GetAxis("Vertical"); // Annahme: Vorwärtsbewegung wird über die "Vertical"-Achse gesteuert.
+        float forwardMovement = Input.GetAxis("Vertical");
 
-        // Setzen Sie die Animator-Triggerbedingung basierend auf der Vorwärtsbewegung.
         if (forwardMovement > 0.0f)
         {
             animator.SetBool("IsMovingForward", true);

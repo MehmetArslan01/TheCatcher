@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TheCatcher.unity
     guid: 9e32b2fd1290ccf45822309b8abb72fe
   - enabled: 1
-    path: Assets/thecatcher.unity
+    path: Assets/Scenes/thecatcher.unity
     guid: 9d0680c1f24f84674b20c78123a70ea8
   m_configObjects: {}
