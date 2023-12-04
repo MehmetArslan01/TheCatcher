@@ -15991,8 +15991,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 372613510001844355, guid: 93e2660f221f3084ebec90389834f08a,
         type: 3}
+      propertyPath: _scenePathHash
+      value: 2208468491
+      objectReference: {fileID: 0}
+    - target: {fileID: 372613510001844355, guid: 93e2660f221f3084ebec90389834f08a,
+        type: 3}
       propertyPath: <SceneId>k__BackingField
-      value: 985567193138843875
+      value: 9485299943945222208
       objectReference: {fileID: 0}
     - target: {fileID: 2378172441401972350, guid: 93e2660f221f3084ebec90389834f08a,
         type: 3}
@@ -20996,8 +21001,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8249962508854986598, guid: 9f40396377be4504da5d639e565a9d5d,
         type: 3}
+      propertyPath: _scenePathHash
+      value: 2208468491
+      objectReference: {fileID: 0}
+    - target: {fileID: 8249962508854986598, guid: 9f40396377be4504da5d639e565a9d5d,
+        type: 3}
       propertyPath: <SceneId>k__BackingField
-      value: 985567190345722666
+      value: 9485299944162286710
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22262,6 +22272,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7582140888815815859, guid: f54a23fe98ad9844991bb29ad469dead,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582140888815815859, guid: f54a23fe98ad9844991bb29ad469dead,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c2c392d4ec07d40528432c3bda4bc466, type: 3}
     - target: {fileID: 7680048437660954301, guid: f54a23fe98ad9844991bb29ad469dead,
         type: 3}
       propertyPath: m_Name
@@ -22274,8 +22294,13 @@ PrefabInstance:
       objectReference: {fileID: 1143006926}
     - target: {fileID: 8920749859845435246, guid: f54a23fe98ad9844991bb29ad469dead,
         type: 3}
+      propertyPath: _scenePathHash
+      value: 2208468491
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920749859845435246, guid: f54a23fe98ad9844991bb29ad469dead,
+        type: 3}
       propertyPath: <SceneId>k__BackingField
-      value: 985567190813700023
+      value: 9485299944455079984
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
